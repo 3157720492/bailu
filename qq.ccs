@@ -1,0 +1,78 @@
+<!doctype html >
+< html >
+	<头>
+		<元 字符集=" utf-8 " />
+		< title >自定义主题示例</ title >
+		<风格>
+			表格{
+				边距： 0；
+			}
+			文本区域{
+				显示：块；
+			}
+		</风格>
+		< script  charset =" utf-8 " src =" ../kindeditor- min.js " > </ script >
+		< script  charset =" utf-8 " src =" ../lang/ zh_CN.js " > </ script >
+		<脚本>
+			种类编辑器。准备好（功能（K ） {
+				克。每个（{ 
+					'插件对齐'：{
+						name : '收藏方式' ,
+						方法：{
+							'justifyleft' : '左对齐' ,
+							'justifycenter' : '居中关注' ,
+							'justifyright' : '右对齐'
+						}
+					} ,
+					'插件顺序'：{
+						name : '编号' ,
+						方法：{
+							'insertorderedlist' : '数字编号' ,
+							'insertunorderedlist' : '项目编号'
+						}
+					} ,
+					'插件缩进'：{
+						name : '缩进' ,
+						方法：{
+							'indent' : '朝缩进' ,
+							' outdent' : '向左缩进'
+						}
+					}
+				} ,函数(  pluginName ,  pluginData  ) {
+					变量 lang  =  { } ;
+					lang [ pluginName ]  =  pluginData . 名称；
+					种类编辑器。朗（ 朗 ）；
+					种类编辑器。插件（ 插件名称， 功能（K ） {
+						变量 自我 = 这个；
+						自我。clickToolbar (  pluginName ,  function ( )  {
+							变种 菜单 = 自我。创建菜单（{
+									名称：插件名称，
+									宽度：插件数据。宽度 ||  100
+								} ) ;
+							克。每个(  pluginData .方法, 函数(  i ,  v  ) {
+								菜单。添加项目（{
+									标题：v ，
+									检查：假，
+									iconClass : pluginName + '-' + i ,
+									点击：函数（） {
+										自我。执行（我）。隐藏菜单( ) ;
+									}
+								} ) ;
+							} )
+						} ) ;
+					} ) ;
+				} ) ;
+				克。创建（'#contentqq' ， {
+					主题类型：'qq' ，
+					项目：[
+						'bold' , 'italic' , 'underline' , 'fontname' , 'fontsize' , 'forecolor' , 'hilitecolor' , 'plug-align' , 'plug-order' , 'plug-indent' , 'link'
+					]
+				} ) ;
+			} ) ;
+		</脚本>
+	</头>
+	<身体>
+		< h3 > QQ风格</ h3 >
+		< textarea  id =" contentqq " name =" content " style =" width:700px;height:200px;visibility:hidden; " > </ textarea >
+	</正文>
+</ html >
